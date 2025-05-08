@@ -11,9 +11,9 @@ public class Main {
         File gamesDir = new File(basePath);
         if (!gamesDir.exists()) {
             if (gamesDir.mkdir()) {
-                log.append("Directory 'Games' created successfully.\n");
+                log.append("папка 'Games' успешно создана.\n");
             } else {
-                log.append("Failed to create directory 'Games'.\n");
+                log.append("Не удалось создать папку 'Games'.\n");
             }
         }
         //Создание поддиректорий
@@ -41,28 +41,28 @@ public class Main {
         File tempFile = new File(gamesDir, "temp/temp.txt");
         try {
             if (tempFile.createNewFile()) {
-                log.append("File 'temp.txt' created successfully.\n");
+                log.append("Файл 'temp.txt' Успешно создан.\n");
             } else {
-                log.append("Failed to create file 'temp.txt'.\n");
+                log.append("Ошибка создания файла 'temp.txt'.\n");
             }
         } catch (IOException e) {
-            log.append("Error creating file 'temp.txt': ").append(e.getMessage()).append("\n");
+            log.append("Ошибка создания файла 'temp.txt': ").append(e.getMessage()).append("\n");
         }
 
         // Запись лога в temp.txt
         try (FileWriter writer = new FileWriter(tempFile)) {
             writer.write(log.toString());
-            System.out.println("Log has been written to 'temp.txt'.");
+            System.out.println("Log записан в 'temp.txt'.");
         } catch (IOException e) {
-            System.out.println("Error writing to 'temp.txt': " + e.getMessage());
+            System.out.println("Ошибка записи в 'temp.txt': " + e.getMessage());
         }
     }
     private static void createDirectory(File parent, String name, StringBuilder log) {
         File dir = new File(parent, name);
         if (dir.mkdir()) {
-            log.append("Directory '").append(name).append("' created successfully.\n");
+            log.append("Папка '").append(name).append("' успешно создано.\n");
         } else {
-            log.append("Failed to create directory '").append(name).append("'.\n");
+            log.append("Не удалось создать папку! '").append(name).append("'.\n");
         }
     }
 
@@ -70,12 +70,12 @@ public class Main {
         File file = new File(parent, name);
         try {
             if (file.createNewFile()) {
-                log.append("File '").append(name).append("' created successfully.\n");
+                log.append("Файл '").append(name).append("' создано успешно.\n");
             } else {
-                log.append("Failed to create file '").append(name).append("'.\n");
+                log.append("Не удалось создать файл! '").append(name).append("'.\n");
             }
         } catch (IOException e) {
-            log.append("Error creating file '").append(name).append("': ").append(e.getMessage()).append("\n");
+            log.append("Ошибка создания файла! '").append(name).append("': ").append(e.getMessage()).append("\n");
         }
     }
 }
